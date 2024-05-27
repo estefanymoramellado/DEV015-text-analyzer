@@ -7,33 +7,30 @@
 <title>Analizador de texto</title>
 <link rel="stylesheet" href="style.css" />
 </head>
-
-<body>
-
   <script src="index.js" type="module"></script>
 </head>  
+
 <body>
 
 <header>
  <h1>Analizador de Texto</h1>
 </header>
 
-<div class="metrics">
+
 <ul>
-  <li><button>Caracteres:</button></li> 
-  <li><button>Caracteres sin espacios:</button></li>
-  <li><button>Palabras:</button></li>
-  <li><button>Números:</button></li>
-  <li><button>Suma números:</button></li> 
-  <li><button>Promedio Longitud:</button></li>
+  <li class="caracteres" data-caracteres="0">Caracteres:</li> 
+  <li class="caracteres" data-caracteres-sin="0">Caracteres sin espacios:</li>
+  <li class="caracteres" data-palabras="0">Palabras:</li>
+  <li class="caracteres">Números:</li>
+  <li class="caracteres">Suma números:</li> 
+  <li class="caracteres">Promedio longitud:</li>
 </ul>
-</div>
-<h1>j</h1>
-<textarea name="user-input" placeholder="Escribe texto aquí"></textarea>
+
+
+<textarea name="user-input" placeholder="Escribe el texto aquí..."></textarea> 
 
 
 <button id="reset-button">Limpiar métricas</button>
-
 
 
 <footer>
@@ -41,6 +38,6 @@
 
 </footer>
 
-</body>
+</body> 
 
 </html>

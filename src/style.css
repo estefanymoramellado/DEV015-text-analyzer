@@ -4,31 +4,32 @@ body {
   align-items: center; 
   justify-content: center; 
   height: 100vh;
-  margin: 0;
+  margin-bottom: 20px 0px;
   background-color: rgb(228, 185, 233); 
 }
    
-h1 {
+header {
   font-family: "Segoe UI";
   color:#532358;
   }
 
+  .caracteres {
+    display: inline-block;
+    background-color: #d193ee; 
+    border: 1px solid #22011b;
+    border-radius: 7px;
+    border-style: solid;
+    margin-right: 6px; 
+    padding: 10px 10px;
+    margin-bottom: 1px;
+  }
 
-li {
-  display: inline-block;
-  margin-right: 2px; 
-}
+  .caracteres {
+  color: rgb(19, 1, 19);
+  font-family: "Segoe UI";
+  font-size: 16px;
 
-button {
-  background-color: #d193ee;
-  border: 1px solid #22011b;
-  border-radius: 10px;
-  padding: 10px 10px;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 10px 0;
- 
-}
+  }
 
 textarea[name="user-input"] {
   background-color:rgb(187, 126, 201);
@@ -36,26 +37,39 @@ textarea[name="user-input"] {
   border-radius:7px;
   border-color: rgb(190, 135, 197);
   border: dotted;
-  margin: 2em 2em 2em 2em;
-  padding: 2em 2em 2em 2em;
+  margin: 25px;
+  margin-top: 4px;
+  padding: 20px;
   width: 1400px ;
   height: 100px;
   align-items: center; 
   display: flex;  
 }
 
-  #reset-button {
-    background-color: #d193ee;
-    border-radius: 5px;
-    margin-top: 20px;
+textarea::placeholder {
+  color: rgb(19, 1, 19);
+  font-family: "Segoe UI";
+  font-size: 16px;
+}
+
+#reset-button {
+  font-family: "Segoe UI";
+  background-color: #c568f0; 
+  border: 1px solid #22011b;
+  border-radius: 7px;
+  padding: 10px 10px;
+  cursor: pointer;
+  margin: 10px 0; 
+  margin-top: 20px;
+  font-size: 16px;
   }
 
-  p {
-    font-family: Verdana;
-    color:#532358;
+
+  footer {
+    font-family: "Segoe UI";
+    color:#300f33;
     padding-right: 35px;
     position: fixed;
     bottom: 0;
     right: 0;
-    
-    }s
+    }
