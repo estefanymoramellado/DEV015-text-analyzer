@@ -1,69 +1,46 @@
-//import analyzer from './analyzer.js';
+import analyzer from './analyzer.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.getElementById("reset-button");
   const textarea = document.querySelector('textarea[name="user-input"]');
-  const caracteresLi = document.querySelector('.caracteres[data-caracteres="0"]');
-  const caracteresSinLi = document.querySelector('.caracteres[data-caracteres-sin="0"]');
-  const palabrasLi = document.querySelector('.caracteres[data-palabras="0"]');
-  const numerosLi = document.querySelector('.numeros[data-palabras="0"]');
+  const caracteresLiDefault = document.querySelector('.caracteres[data-caracteres="default"]');
+  const caracteresLiSinEspacios = document.querySelector('.caracteres[data-caracteres="sin espacios"]');
+  const caracteresLiPalabras = document.querySelector('.caracteres[data-caracteres="palabras"]');
+  const caracteresLiNumeros = document.querySelector('.caracteres[data-caracteres="numeros"]');
+  const caracteresLiSuma = document.querySelector('.caracteres[data-caracteres="suma"]');
+  const caracteresLiLongitud = document.querySelector('.caracteres[data-caracteres="longitud"]');
 
-  textarea.addEventListener('input', function() {
+
+  textarea.addEventListener('input', function () {
     const texto = textarea.value;
 
-    const caracteres = texto.length;
-    caracteresLi.textContent = 'Caracteres: ' + caracteres;
+    const caracteresDefault = analyzer.getCharacterCount(texto);
+    caracteresLiDefault.textContent = 'Caracteres: ' + caracteresDefault;
 
-    const caracteresSinEspacios = texto.replace(/[^a-zA-Z0-9]/g, "");
-    const caracteresSinEspaciosLength = caracteresSinEspacios.length;
-    caracteresSinLi.textContent = 'Caracteres sin espacios: ' + caracteresSinEspaciosLength;
+    const sinEspacios = analyzer.getCharacterCountExcludingSpaces(texto);
+    caracteresLiSinEspacios.textContent = 'Caracteres sin espacios: ' + sinEspacios;
 
-    const palabras = texto.trim().split(/\s+/);
-    const palabrasLength = palabras.filter(palabra => palabra.length > 0).length;
-    palabrasLi.textContent = 'Palabras: ' + palabrasLength;
+    const palabras = analyzer.getWordCount(texto);
+    caracteresLiPalabras.textContent = 'Palabras: ' + palabras;
 
+    const numeros = analyzer.getNumberCount(texto);
+    caracteresLiNumeros.textContent = 'Numeros: ' + numeros;
+
+
+    const suma = analyzer.getNumbersSum(texto);
+    caracteresLiSuma.textContent = 'Suma numeros: ' + suma;
+
+    const longitud = analyzer.getAverageWordLength(texto);
+    caracteresLiLongitud.textContent = 'Promedio longitud: ' + longitud;
+
+    button.addEventListener("click", function () { 
+    textarea.value = "";
+    caracteresLiDefault.textContent = 'Caracteres:';
+    caracteresLiSinEspacios.textContent = 'Caracteres sin espacios:';
+    caracteresLiPalabras.textContent = 'Palabras:';
+    caracteresLiNumeros.textContent = 'Numeros:';
+    caracteresLiSuma.textContent = 'Suma numeros:';
+    caracteresLiLongitud.textContent = 'Promedio longitud:';   
+    });
   });
 });
-
-
-
-
-//document.addEventListener('DOMContentLoaded', function() {
- // const textarea = document.querySelector('textarea[name="user-input"]');
-
-//textarea.addEventListener('input', function() {
-
-  //const texto = textarea.value;
- // const cleanedTest = texto.replace(/[^a-zA-Z0-9]/g, "");
-  //const caracteresSinEspacios = cleanedTest.length
-
-  //caracteresSinLi.textContent = 'Caracteres sin espacios: ' + caracteresSinEspacios;
-
-  //});
-
-//});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//const string="  Esto    es  un    texto con    varios    espacios    ";
-  //string.replace(/\s+/g, " "); // "  Esto es un texto con varios espacios    "
-  //string.replace(/\s+/g, " ").trim(); // "Esto es un texto con varios espacios"
-//const input = document.getElementById("input");
- // input.value.trim();
-
