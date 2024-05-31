@@ -3,44 +3,43 @@ import analyzer from './analyzer.js';
 document.addEventListener('DOMContentLoaded', function () {
   const button = document.getElementById("reset-button");
   const textarea = document.querySelector('textarea[name="user-input"]');
-  const caracteresLiDefault = document.querySelector('.caracteres[data-caracteres="default"]');
-  const caracteresLiSinEspacios = document.querySelector('.caracteres[data-caracteres="sin espacios"]');
-  const caracteresLiPalabras = document.querySelector('.caracteres[data-caracteres="palabras"]');
-  const caracteresLiNumeros = document.querySelector('.caracteres[data-caracteres="numeros"]');
-  const caracteresLiSuma = document.querySelector('.caracteres[data-caracteres="suma"]');
-  const caracteresLiLongitud = document.querySelector('.caracteres[data-caracteres="longitud"]');
+  const caracteresLiCharacterCount = document.querySelector('.caracteres[data-testid="character-count"]');
+  const caracteresLiCharacterNoSpacesCount = document.querySelector('.caracteres[data-testid="character-no-spaces-count"]');
+  const caracteresLiWordCount = document.querySelector('.caracteres[data-testid="word-count"]');
+  const caracteresLiNumberCount = document.querySelector('.caracteres[data-testid="number-count"]');
+  const caracteresLiNumberSum = document.querySelector('.caracteres[data-testid="number-sum"]');
+  const caracteresLiWordLengthAverage = document.querySelector('.caracteres[data-testid="word-length-average"]');
 
 
   textarea.addEventListener('input', function () {
     const texto = textarea.value;
 
-    const caracteresDefault = analyzer.getCharacterCount(texto);
-    caracteresLiDefault.textContent = 'Caracteres: ' + caracteresDefault;
+    const characterCount = analyzer.getCharacterCount(texto);
+    caracteresLiCharacterCount.textContent = 'Caracteres: ' + characterCount;
 
-    const sinEspacios = analyzer.getCharacterCountExcludingSpaces(texto);
-    caracteresLiSinEspacios.textContent = 'Caracteres sin espacios: ' + sinEspacios;
+    const characterNoSpacesCount = analyzer.getCharacterCountExcludingSpaces(texto);
+    caracteresLiCharacterNoSpacesCount.textContent = 'Caracteres sin espacios: ' + characterNoSpacesCount;
 
-    const palabras = analyzer.getWordCount(texto);
-    caracteresLiPalabras.textContent = 'Palabras: ' + palabras;
+    const wordCount = analyzer.getWordCount(texto);
+    caracteresLiWordCount.textContent = 'Palabras: ' + wordCount;
 
-    const numeros = analyzer.getNumberCount(texto);
-    caracteresLiNumeros.textContent = 'Numeros: ' + numeros;
+    const numberCount = analyzer.getNumberCount(texto);
+    caracteresLiNumberCount.textContent = 'Numeros: ' + numberCount;
 
+    const numberSum = analyzer.getNumbersSum(texto);
+    caracteresLiNumberSum.textContent = 'Suma numeros: ' + numberSum;
 
-    const suma = analyzer.getNumbersSum(texto);
-    caracteresLiSuma.textContent = 'Suma numeros: ' + suma;
-
-    const longitud = analyzer.getAverageWordLength(texto);
-    caracteresLiLongitud.textContent = 'Promedio longitud: ' + longitud;
+    const wordLengthAverage = analyzer.getAverageWordLength(texto);
+    caracteresLiWordLengthAverage.textContent = 'Promedio longitud: ' + wordLengthAverage;
 
     button.addEventListener("click", function () { 
     textarea.value = "";
-    caracteresLiDefault.textContent = 'Caracteres:';
-    caracteresLiSinEspacios.textContent = 'Caracteres sin espacios:';
-    caracteresLiPalabras.textContent = 'Palabras:';
-    caracteresLiNumeros.textContent = 'Numeros:';
-    caracteresLiSuma.textContent = 'Suma numeros:';
-    caracteresLiLongitud.textContent = 'Promedio longitud:';   
+    caracteresLiCharacterCount.textContent = 'Caracteres:';
+    caracteresLiCharacterNoSpacesCount.textContent = 'Caracteres sin espacios:';
+    caracteresLiWordCount.textContent = 'Palabras:';
+    caracteresLiNumberCount.textContent = 'Números:';
+    caracteresLiNumberSum.textContent = 'Suma números:';
+    caracteresLiWordLengthAverage.textContent = 'Promedio longitud:';   
     });
   });
 });
