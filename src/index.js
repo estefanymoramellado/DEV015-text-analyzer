@@ -32,14 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const wordLengthAverage = analyzer.getAverageWordLength(texto);
     caracteresLiWordLengthAverage.textContent = 'Promedio longitud: ' + wordLengthAverage;
 
-    button.addEventListener("click", function () { 
-    textarea.value = "";
-    caracteresLiCharacterCount.textContent = 'Caracteres:';
-    caracteresLiCharacterNoSpacesCount.textContent = 'Caracteres sin espacios:';
-    caracteresLiWordCount.textContent = 'Palabras:';
-    caracteresLiNumberCount.textContent = 'Números:';
-    caracteresLiNumberSum.textContent = 'Suma números:';
-    caracteresLiWordLengthAverage.textContent = 'Promedio longitud:';   
+    button.addEventListener("click", function () {
+      textarea.value = "";
+      caracteresLiCharacterCount.textContent = 'Caracteres:';
+      caracteresLiCharacterNoSpacesCount.textContent = 'Caracteres sin espacios:';
+      caracteresLiWordCount.textContent = 'Palabras:';
+      caracteresLiNumberCount.textContent = 'Números:';
+      caracteresLiNumberSum.textContent = 'Suma números:';
+      caracteresLiWordLengthAverage.textContent = 'Promedio longitud:';
     });
   });
 });
