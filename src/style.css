@@ -5,17 +5,18 @@ body {
   justify-content: center; 
   height: 100vh;
   margin-bottom: 20px 0px;
-  background-color: rgb(228, 185, 233); 
+  background-color: #eaf4ec;
+  overflow: hidden; 
 }
    
 header {
   font-family: "Segoe UI";
-  color:#532358;
+  color: #376b76;
   }
 
   .caracteres {
     display: inline-block;
-    background-color: #d193ee; 
+    background-color: #69c0c1; 
     border: 1px solid #22011b;
     border-radius: 7px;
     border-style: solid;
@@ -25,25 +26,26 @@ header {
   }
 
   .caracteres {
-  color: rgb(19, 1, 19);
+  color: #0f3446;
   font-family: "Segoe UI";
   font-size: 16px;
 
   }
 
 textarea[name="user-input"] {
-  background-color:rgb(187, 126, 201);
+  background-color: #f0f1ee;
   background-clip: border-box;
+  border-color: #20dbd8;
   border-radius:7px;
-  border-color: rgb(190, 135, 197);
   border: dotted;
   margin: 25px;
   margin-top: 4px;
   padding: 20px;
-  width: 1400px ;
+  width: 600px ;
   height: 100px;
   align-items: center; 
-  display: flex;  
+  display: flex;
+  resize: none;  
 }
 
 textarea::placeholder {
@@ -54,7 +56,7 @@ textarea::placeholder {
 
 #reset-button {
   font-family: "Segoe UI";
-  background-color: #c568f0; 
+  background-color: #69c0c1; 
   border: 1px solid #22011b;
   border-radius: 7px;
   padding: 10px 10px;
@@ -67,7 +69,7 @@ textarea::placeholder {
 
   footer {
     font-family: "Segoe UI";
-    color:#300f33;
+    color: #003360;
     padding-right: 35px;
     position: fixed;
     bottom: 0;
