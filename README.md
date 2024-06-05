@@ -43,5 +43,6 @@ Para contar palabras manipulé la cadena con trim para quitar espacios y split p
 Continué con la funcion de contar numeros usando match para buscar coincidencias dentro de la cadena como numeros y numeros con decimales, para entregar el valorocupe un operador ternario.
 
 Para la funcion de suma de numeros, volví a recurrir a match para identificar numero y numeros decimales 
+luego use la funcion if else for 
 
 
