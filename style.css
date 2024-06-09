@@ -44,7 +44,6 @@ textarea[name="user-input"] {
   width: 600px;
   height: 100px;
   align-items: center;
-  display: flex;
   resize: none;
 }
 
