@@ -43,6 +43,13 @@ Para contar palabras manipulé la cadena con trim para quitar espacios y split p
 Continué con la funcion de contar numeros usando match para buscar coincidencias dentro de la cadena como numeros y numeros con decimales, para entregar el valorocupe un operador ternario.
 
 Para la funcion de suma de numeros, volví a recurrir a match para identificar numero y numeros decimales 
-luego use la funcion if else for 
+luego use la funcion if else for. 
+If si la condicion encuentra número, se inicia el contador de suma. Luego cree un bloque que recorriera los numeros enteros y decimales y lo agregre a la funcion de suma, si no encuentra valor, retorna a cero.
+
+Finalmente la variable de promedio de longitud la realicé de la siguiente forma: Llame a la funcion de contar palabras. 
+Cree dos variables; un contador de longitud de palabras y un contador de total de palabras válidas, luego integré una funcion condicional, en donde si la longitud de palabra es mayor a cero, se cuenta como valida y se su suma, y el contador de palabras validas se incrementa.
+Ya para saber la longitud de la palabra, cree un condicion tambien en donde se divide, la longitud de palabra total por la cantidad de palabras validas.
+Finalmente para obtener decimales incluí parsefloat y tofixed con solo dos decimales.
+
 
 

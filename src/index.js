@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const numberCount = analyzer.getNumberCount(texto);
     caracteresLiNumberCount.textContent = 'Numeros: ' + numberCount;
 
-    const numberSum = analyzer.getNumbersSum(texto);
+    const numberSum = analyzer.getNumberSum(texto);
     caracteresLiNumberSum.textContent = 'Suma numeros: ' + numberSum;
 
     const wordLengthAverage = analyzer.getAverageWordLength(texto);
