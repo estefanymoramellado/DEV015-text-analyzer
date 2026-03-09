@@ -1,61 +1,344 @@
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  height: 100vh;
+* {
+  box-sizing: border-box;
   margin: 0;
-  background-color: rgb(228, 185, 233); 
+  padding: 0;
 }
-   
+
+body {
+  background: #d8cfb8;
+  color: #2b2b2b;
+  padding: 70px;
+  font-family: 'Delius', cursive;
+}
+
 h1 {
-  font-family: "Segoe UI";
-  color:#532358;
-  }
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.5em;
+  font-family: 'Asul', serif;
+}
+
+.layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.col-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.col-right {
+  width: 380px;
+  flex-shrink: 0;
+}
+
+.hint {
+  font-family: 'Delius', cursive;
+  margin-bottom: 12px;
+}
+
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  height: 20em;
+  border-radius: 15px;
+  border: none;
+  padding: 20px;
+  padding-bottom: 35px;
+  resize: none;
+  background: #e9e5db;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Delius', cursive;
+  font-size: 0.95rem;
+}
+
+.char-total {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  list-style: none;
+  pointer-events: none;
+}
+
+.char-total button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+  color: #888;
+  cursor: default;
+  font-family: 'Delius', cursive;
+}
+
+.char-total button:hover {
+  transform: none;
+  opacity: 1;
+}
 
 
-li {
-  display: inline-block;
-  margin-right: 2px; 
+.buttons {
+  margin-top: 15px;
+  margin-bottom: 2em;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
 button {
-  background-color: #d193ee;
-  border: 1px solid #22011b;
-  border-radius: 10px;
-  padding: 10px 10px;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 14px;
-  margin: 10px 0;
- 
+  font-weight: 500;
+  font-family: 'Delius', cursive;
+  transition: 0.2s;
 }
 
-textarea[name="user-input"] {
-  background-color:rgb(187, 126, 201);
-  background-clip: border-box;
-  border-radius:7px;
-  border-color: rgb(190, 135, 197);
-  border: dotted;
-  margin: 2em 2em 2em 2em;
-  padding: 2em 2em 2em 2em;
-  width: 1400px ;
-  height: 100px;
-  align-items: center; 
-  display: flex;  
+
+.btn-yellow {
+  background: #faf9f8;
 }
 
-  #reset-button {
-    background-color: #d193ee;
-    border-radius: 5px;
-    margin-top: 20px;
+.btn-red {
+  background: #FAA0AF;
+  color: rgb(17, 17, 17);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+
+.metrics ul {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 8px;
+  column-gap: 1em;
+  list-style: none;
+  padding: 0;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.metrics li {
+  list-style: none;
+}
+
+.metrics li button {
+  width: 100%;
+  background: #d8cfb8;
+  border: 1.5px solid #3a3a3a;
+  border-radius: 18px;
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.bottom-buttons {
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.panel-title {
+  background: #97C2CE;
+  padding: 14px 28px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.top-boxes {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  list-style: none;
+}
+
+.top-boxes li {
+  list-style: none;
+  flex: 1;
+}
+
+.top-boxes li button {
+  width: 100%;
+  background: #cbbf9f;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.big-box {
+  background: #e7e0cd;
+  border: 1px solid #b0a88a;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.big-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.big-box h3 {
+  font-size: 0.95rem;
+  font-family: 'Asul', serif;
+  font-weight: 400;
+}
+
+.percent {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Asul', serif;
+}
+
+.progress {
+  background: #cfc6b0;
+  height: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.purple {
+  background: linear-gradient(90deg, #8a6dd3, #c3b1f4);
+  width: 62%;
+}
+
+.blue {
+  background: linear-gradient(90deg, #6c9db0, #9cc6d6);
+  width: 52%;
+}
+
+.level {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.green {
+  background: #3db85b;
+}
+
+.metrics2 ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.metrics2 li {
+  list-style: none;
+}
+
+.metrics2 li button {
+  width: 100%;
+  background: #d8cfb8;
+  border: 1.5px solid #3a3a3a;
+  border-radius: 18px;
+  padding: 12px 18px;
+  text-align: left;
+}
+
+.chart-box {
+  background: #e7e0cd;
+  border: 1px solid #b0a88a;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.chart-label {
+  background: #7aadba;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.chart-bar {
+  background: #2d6e7e;
+  height: 28px;
+  width: 40%;
+  border-radius: 4px;
+}
+
+li[data-caracteres="legibilidad"] {
+  list-style: none;
+}
+
+li[data-caracteres="legibilidad"] button {
+  background: #e7e0cd !important;
+  border: 1px solid #b0a88a !important;
+  border-radius: 12px !important;
+  padding: 18px 20px !important;
+  text-align: left !important;
+  width: 100% !important;
+  cursor: default !important;
+  display: block !important;
+}
+
+li[data-caracteres="legibilidad"] button:hover {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+li[data-caracteres="repetidas"] {
+  list-style: none;
+}
+
+li[data-caracteres="repetidas"] button {
+  background: #e7e0cd !important;
+  border: 1px solid #b0a88a !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  text-align: left !important;
+  width: 100% !important;
+  cursor: default !important;
+  display: block !important;
+}
+
+li[data-caracteres="repetidas"] button:hover {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 820px) {
+  .layout {
+    flex-direction: column;
   }
 
-  p {
-    font-family: Verdana;
-    color:#532358;
-    padding-right: 35px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    
-    }s
+  .col-right {
+    width: 100%;
+  }
+}
