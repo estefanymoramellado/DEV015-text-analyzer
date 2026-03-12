@@ -17,7 +17,6 @@
     "test:e2e": "playwright test",
     "test:e2e-browser": "playwright test --headed",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
-    "start": "serve ./src",
     "deploy": "gh-pages -d src"
   },
   "devDependencies": {

@@ -1,25 +1,11 @@
 import analyzer from './analyzer.js';
 
-document.querySelector('.btn-red.btn-ia').addEventListener('click', async () => {
-  const text = textarea.value;
-  if (!text.trim()) return;
-
-  try {
-    const res = await fetch('http://localhost:3000/mejorar', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text })
-    });
-
-    const data = await res.json();
-    textarea.value = data.result;
-    updateMetrics();
-  } catch (error) {
-    alert('Error al conectar con el servidor local');
-  }
-});
-
 const textarea = document.querySelector('textarea[name="user-input"]');
+
+textarea.addEventListener('input', () => {
+  const text = textarea.value;
+  charCountEl.textContent = `${analyzer.getCharacterCount(text)} / 1000 Caracteres`;
+});
 
 const charCountEl = document.querySelector('li[data-caracteres="total"] button');
 const charNoSpaceEl = document.querySelector('li[data-caracteres="sin-espacios"] button');
@@ -34,16 +20,22 @@ const readabilityEl = document.querySelector('li[data-caracteres="legibilidad"] 
 const fleschGradeEl = document.querySelector('li[data-caracteres="flesch"] button');
 const idiomaEl = document.querySelector('li[data-caracteres="idioma"] button');
 
-const updateMetrics = () => {
+const updateBasicMetrics = () => {
   const text = textarea.value;
-  
-  charCountEl.textContent = `Caracteres: ${analyzer.getCharacterCount(text)}`;
+  /*charCountEl.textContent = `Caracteres: ${analyzer.getCharacterCount(text)}`;*/
   charNoSpaceEl.textContent = `Caracteres sin espacios: ${analyzer.getCharacterCountExcludingSpaces(text)}`;
   wordCountEl.textContent = `Palabras: ${analyzer.getWordCount(text)}`;
   numberCountEl.textContent = `Números: ${analyzer.getNumberCount(text)}`;
   avgWordLengthEl.textContent = `Promedio longitud: ${analyzer.getAverageWordLength(text).toFixed(2)}`;
   paragraphCountEl.textContent = `Párrafos: ${analyzer.getParagraphCount(text)}`;
   sentenceCountEl.textContent = `Oraciones: ${analyzer.getSentenceCount(text)}`;
+};
+
+const updatePanelMetrics = () => {
+  const text = textarea.value;
+
+  readingTimeEl.textContent = `Tiempo de lectura: ${analyzer.getReadingTime(text)}`;
+  idiomaEl.textContent = `Idioma: ${analyzer.getLanguage(text)}`;
 
   const totalWords = analyzer.getWordCount(text);
   const repeated = analyzer.getRepeatCount(text);
@@ -70,8 +62,6 @@ const updateMetrics = () => {
     </div>
   `;
 
-  readingTimeEl.textContent = `Tiempo de lectura: ${analyzer.getReadingTime(text)}`;
-  
   const result = analyzer.getReadability(text);
   readabilityEl.innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
@@ -92,17 +82,40 @@ const updateMetrics = () => {
       <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:${result.score >= 70 ? '#3db85b' : result.score >= 50 ? '#e6a817' : '#d93b3b'};"></span>
     </span>
   `;
-  
+
   if (fleschGradeEl) {
     fleschGradeEl.textContent = `Grado Flesch: ${analyzer.getFleschKincaidGrade(text)}`;
   }
-
-  idiomaEl.textContent = `Idioma: ${analyzer.getLanguage(text)}`;
 };
 
-textarea.addEventListener('input', updateMetrics);
+document.querySelector('.analize-button').addEventListener('click', () => {
+  const text = textarea.value;
+  if (!text.trim()) return;
+  updateBasicMetrics();
+  updatePanelMetrics();
+});
+
+document.querySelector('.btn-red-btn-ia').addEventListener('click', async () => {
+  const text = textarea.value;
+  if (!text.trim()) return;
+
+  try {
+    const res = await fetch('https://organographical-xenomorphically-kenda.ngrok-free.dev/mejorar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+
+    const data = await res.json();
+    textarea.value = data.result;
+    updateBasicMetrics();
+  } catch (error) {
+    alert('Error al conectar con el servidor local');
+  }
+});
 
 document.getElementById('reset-button').addEventListener('click', () => {
   textarea.value = '';
-  updateMetrics();
+  updateBasicMetrics();
+  updatePanelMetrics();
 });

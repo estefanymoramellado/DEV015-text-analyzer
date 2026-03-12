@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Analizador de texto</title>
   <link href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=Delius&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
@@ -13,6 +14,11 @@
   <div class="container">
     <header>
       <h1>Analizador de Texto</h1>
+      <p class="app-description">
+        Pega o escribe cualquier texto y obtén al instante métricas detalladas:
+        palabras, caracteres, legibilidad y más. <br><span>Usa la IA para mejorar tu
+        redacción antes de analizar.</span></br>
+      </p>
     </header>
 
     <div class="layout">
@@ -23,27 +29,28 @@
         <div class="textarea-wrapper">
           <textarea name="user-input" placeholder=""></textarea>
           <li data-caracteres="total" class="char-total"><button></button></li>
+          <button id="reset-button" class="btn-yellow">Limpiar texto</button>
         </div>
 
         <div class="buttons">
-          <button class="btn-red btn-ia">Mejorar con IA antes de analizar</button>
-          <button id="reset-button" class="btn-yellow">Limpiar texto</button>
-          <button class="btn-red">Exportar resultado</button>
-
+          <div class="buttons-row-top">
+            <button class="btn-red-btn-ia">✨ Mejorar texto con IA</button>
+            <button class="analize-button">Analizar</button>
+            
+          </div>
         </div>
 
         <div class="metrics">
           <ul>
-            <li data-caracteres="palabras"><button>Palabras:</button></li>
-            <li data-caracteres="sin-espacios"><button>Caracteres sin espacios:</button></li>
-            <li data-caracteres="parrafos"><button>Párrafos:</button></li>
-            <li data-caracteres="oraciones"><button>Oraciones:</button></li>
-            <li data-caracteres="numeros"><button>Números:</button></li>
-            <li data-caracteres="promedio"><button>Promedio Longitud:</button></li>
+            <li data-caracteres="palabras"><button>Palabras: -</button></li>
+            <li data-caracteres="sin-espacios"><button>Caracteres sin espacios: -</button></li>
+            <li data-caracteres="parrafos"><button>Párrafos: -</button></li>
+            <li data-caracteres="oraciones"><button>Oraciones: -</button></li>
+            <li data-caracteres="numeros"><button>Números: -</button></li>
+            <li data-caracteres="promedio"><button>Promedio Longitud: -</button></li>
           </ul>
         </div>
       </div>
-
 
       <div class="col-right">
         <div class="panel-title">
@@ -56,26 +63,30 @@
         </div>
 
         <div class="big-box">
-          <li data-caracteres="legibilidad"><button>Legibilidad:</button></li>
-        </div>
-
-        <div class="big-box">
           <li data-caracteres="flesch">
             <button id="flesch-grade">Grado Flesch: —</button>
           </li>
+          <li data-caracteres="legibilidad"><button>Legibilidad: -</button></li>
+        </div>
 
-      <div class="metrics2">
-        <ul>
-          <li data-caracteres="repetidas"><button>Palabras repetidas:</button></li>
-        </ul>
+        <div class="big-box">
+
+          <div class="metrics2">
+            <ul>
+              <li data-caracteres="repetidas"><button>Palabras repetidas: -</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="buttons-down">
+          <button class="btn-red">Exportar resultado</button>
+        </div>
+
       </div>
 
-    </div>
-  </div>
+      <footer></footer>
 
-  <footer></footer>
-
-  <script type="module" src="./index.js"></script>
+      <script type="module" src="./index.js"></script>
 </body>
 
 </html>

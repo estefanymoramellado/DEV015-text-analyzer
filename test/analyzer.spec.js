@@ -1,4 +1,3 @@
-// We import the object 'analyzer' which contains the functions.
 import analyzer from '../src/analyzer';
 
 
@@ -67,7 +66,6 @@ describe('analyzer', () => {
 
 });  
 
-//TODO: Remove .skip to execute the test for optional functionalities.
 describe.skip('Optional:', () => {
   const TEST_TEST_EMPTY = '';
   const TEST_TEST_SPACES = '       ';

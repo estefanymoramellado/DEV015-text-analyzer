@@ -89,28 +89,6 @@ const analyzer = {
     return `${minutes} min ${seconds} s`;
   },
 
-  getReadability: (text) => {
-    if (!text) return { label: "— Texto vacío", score: 0 };
-    const words = text.trim().split(/\s+/);
-    if (words.length < 5) return { label: "— Muy corto", score: 0 };
-
-    const sentences = text.split(/[.!?]+/).filter(s => s.trim() !== '');
-    let syllables = 0;
-    words.forEach(word => {
-      const clean = word.toLowerCase().replace(/[^\wáéíóúñü]/gi, '');
-      const matches = clean.match(/[aeiouáéíóúü]+/g);
-      if (matches) syllables += matches.length;
-    });
-
-    const wordsPerSentence = words.length / (sentences.length || 1);
-    const syllablesPerWord = syllables / words.length;
-    let score = Math.round(206.84 - (0.60 * syllablesPerWord) - (1.02 * wordsPerSentence));
-    score = Math.max(0, Math.min(100, score)); 
-
-    const label = score >= 70 ? "Fácil" : score >= 50 ? "Medio" : "Difícil";
-    return { label, score };
-  },
-
   getLanguage: (text) => {
     if (!text || text.trim().length < 2) return "—";
 
@@ -126,7 +104,7 @@ const analyzer = {
     if (spanishMatches === 0 && englishMatches === 0) return "Desconocido";
     return spanishMatches >= englishMatches ? "Español 🇪🇸" : "Inglés 🇬🇧";
   },
-    countSyllables: (text) => {
+  countSyllables: (text) => {
     if (!text) return 0;
     
     const cleanText = text.toLowerCase().replace(/[^\w\sáéíóúüñ]/g, '');

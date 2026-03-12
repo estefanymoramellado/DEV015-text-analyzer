@@ -12,10 +12,22 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  margin-bottom: 1.5em;
+  font-size: 4rem;
   font-family: 'Asul', serif;
+}
+
+.app-description {
+  font-size: 0.95rem;
+  color: #111111;
+  margin-bottom: 4em;
+  max-width: 60%;
+  line-height: 1.6;
+  margin-top: 0.2em;
+}
+
+.app-description span {
+  font-weight: 700;
+  color: #000000;
 }
 
 .layout {
@@ -58,10 +70,15 @@ textarea {
   font-size: 0.95rem;
 }
 
+textarea:focus {
+  outline: none;
+  border: 1.5px solid #a89880; 
+}
+
 .char-total {
   position: absolute;
   bottom: 10px;
-  right: 16px;
+  left: 16px; 
   list-style: none;
   pointer-events: none;
 }
@@ -81,15 +98,6 @@ textarea {
   opacity: 1;
 }
 
-
-.buttons {
-  margin-top: 15px;
-  margin-bottom: 2em;
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-
 button {
   border: none;
   padding: 12px 20px;
@@ -100,14 +108,72 @@ button {
   transition: 0.2s;
 }
 
+.buttons {
+  margin-top: 15px;
+  margin-bottom: 2em;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons-row-top {
+  display: flex;
+  gap: 2em;
+
+}
+
+.btn-red-btn-ia {
+  background-color: #7A9E7E;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 300;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+}
+
+.btn-red-btn-ia:hover {
+  background-color: #3a6b4f;
+  color: #f0e6c8;
+  transform: translateY(-2px);
+}
 
 .btn-yellow {
   background: #faf9f8;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 200;
+  border-radius: 8px;
+  border: none;
 }
 
 .btn-red {
-  background: #FAA0AF;
-  color: rgb(17, 17, 17);
+  background-color: #c47a85;
+  color: #ffffff;
+  font-size: 0.9rem;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 200;
+  border-radius: 8px;
+  border: none;
+}
+
+#reset-button {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-family: 'Delius', cursive;
 }
 
 button:hover {
@@ -115,6 +181,15 @@ button:hover {
   opacity: 0.9;
 }
 
+.analize-button {
+  background-color: #7a5c3a;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 200;
+  border-radius: 8px;
+  border: none;
+}
 
 .metrics ul {
   display: grid;
@@ -147,8 +222,17 @@ button:hover {
   margin-top: 1em;
 }
 
+.col-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  width: 20%;
+}
+
 .panel-title {
-  background: #97C2CE;
+  background: #c47a85;
+  color: white;
   padding: 14px 28px;
   display: block;
   width: 100%;
@@ -156,7 +240,7 @@ button:hover {
   border-radius: 8px;
   margin-bottom: 20px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .top-boxes {
@@ -164,6 +248,8 @@ button:hover {
   gap: 12px;
   margin-bottom: 16px;
   list-style: none;
+  width: 100%;
+  font-weight: bold;
 }
 
 .top-boxes li {
@@ -180,8 +266,27 @@ button:hover {
   text-align: left;
 }
 
+#flesch-grade {
+  background-color: #cbbf9f;
+  border: 1.5px solid #cbbf9f;
+  ;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  color: #4a3f35;
+  font-weight: 600;
+  cursor: default;
+  display: inline-block;
+}
+
+li[data-caracteres="flesch"] {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
 .big-box {
   background: #e7e0cd;
+  width: 100%;
   border: 1px solid #b0a88a;
   border-radius: 12px;
   padding: 18px 20px;
@@ -258,6 +363,7 @@ button:hover {
 
 .metrics2 li {
   list-style: none;
+
 }
 
 .metrics2 li button {
@@ -333,12 +439,75 @@ li[data-caracteres="repetidas"] button:hover {
   opacity: 1 !important;
 }
 
+
 @media (max-width: 820px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .app-description {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 2em;
+    font-size: 0.85rem;
+  }
+
+  #reset-button {
+    position: absolute;
+    bottom: 10px;
+    margin-right: 2px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    font-family: 'Delius', cursive;
+  }
+
+  .char-total {
+    position: absolute;
+    bottom: 10px;
+    margin-left: 3px;
+    right: auto;
+  }
+
+  #reset-button:hover {
+    color: #333;
+    transform: none;
+    opacity: 1;
+  }
+
   .layout {
     flex-direction: column;
   }
 
+  .col-left,
   .col-right {
+    width: 100% !important;
+  }
+
+  .buttons-row-top {
+    flex-direction: column;
+    align-items: center;
     width: 100%;
   }
+
+  .btn-red-btn-ia,
+  .analize-button,
+  .reset-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .metrics ul {
+    grid-template-columns: 1fr;
+  }
 }
+
