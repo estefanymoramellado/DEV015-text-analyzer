@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Analizador de texto</title>
   <link href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=Delius&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
@@ -16,8 +16,8 @@
       <h1>Analizador de Texto</h1>
       <p class="app-description">
         Pega o escribe cualquier texto y obtén al instante métricas detalladas:
-        palabras, caracteres, legibilidad y más. <br><span>Usa la IA para mejorar tu
-        redacción antes de analizar.</span></br>
+        palabras, caracteres, legibilidad y más.
+        <br><span>Usa la IA para mejorar tu redacción antes de analizar.</span>
       </p>
     </header>
 
@@ -27,16 +27,15 @@
         <p class="hint">Escribe tu texto aquí para analizarlo ↓</p>
 
         <div class="textarea-wrapper">
-          <textarea name="user-input" placeholder=""></textarea>
+          <textarea name="user-input" placeholder="Escribe o pega tu texto aquí..."></textarea>
           <li data-caracteres="total" class="char-total"><button></button></li>
           <button id="reset-button" class="btn-yellow">Limpiar texto</button>
         </div>
 
         <div class="buttons">
           <div class="buttons-row-top">
-            <button class="btn-red-btn-ia">✨ Mejorar texto con IA</button>
-            <button class="analize-button">Analizar</button>
-            
+            <button class="btn-red-btn-ia" id="btn-ia">✨ Mejorar texto con IA</button>
+            <button class="analize-button" id="btn-analizar">Analizar</button>
           </div>
         </div>
 
@@ -53,9 +52,7 @@
       </div>
 
       <div class="col-right">
-        <div class="panel-title">
-          Métricas y complejidad de tu texto
-        </div>
+        <div class="panel-title">Métricas y complejidad de tu texto</div>
 
         <div class="top-boxes">
           <li data-caracteres="idioma"><button>Idioma detectado:</button></li>
@@ -70,7 +67,6 @@
         </div>
 
         <div class="big-box">
-
           <div class="metrics2">
             <ul>
               <li data-caracteres="repetidas"><button>Palabras repetidas: -</button></li>
@@ -79,14 +75,32 @@
         </div>
 
         <div class="buttons-down">
-          <button class="btn-red">Exportar resultado</button>
+          <button class="btn-red" id="btn-exportar">Exportar resultado</button>
         </div>
-
       </div>
 
-      <footer></footer>
+    </div>
+  </div>
 
-      <script type="module" src="./index.js"></script>
+  <div class="modal-overlay" id="modal-ia">
+    <div class="modal">
+      <h2>⚙️ Configurar servidor IA</h2>
+      <p>Ingresa la URL donde corre tu servidor local (<code>server.js</code>).<br>
+         Si usas ngrok, pega aquí la URL pública de ngrok.</p>
+
+      <label>URL del servidor</label>
+      <input type="text" id="server-url" placeholder="http://localhost:3000" />
+
+      <div class="modal-actions">
+        <button class="btn-sm btn-cancel" id="modal-cancel">Cancelar</button>
+        <button class="btn-sm btn-confirm" id="modal-confirm">Mejorar texto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="./index.js"></script>
 </body>
 
 </html>
